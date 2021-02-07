@@ -1,6 +1,7 @@
 <template lang="pug">
 button(class="absolute top-0 right-0 p-4 overflow-hidden group" @click="switchTheme")
-  div(class="w-5 h-5 bg-white dark:bg-black bg-opacity-0" style="transition-property: background;" @transitionend="clearClass")
+  div(class="w-5 h-5")
+    div(class="w-0 h-0 bg-white dark:bg-black" style="transition-property: background;" @transitionend="clearClass")
   transition(
     enter-from-class="rotate-90"
     leave-to-class="-rotate-90"
