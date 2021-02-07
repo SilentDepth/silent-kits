@@ -4,9 +4,10 @@ const hover = require('./tailwindcss/hover')
 
 module.exports = {
   purge: [
-    './index.html',
-    './site/**/*.vue',
-    './site/**/*.tsx',
+    'index.html',
+    '**/*.vue',
+    '**/*.tsx',
+    '!node_modules/',
   ],
   darkMode: 'class',
   theme: {
