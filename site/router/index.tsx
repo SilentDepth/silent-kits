@@ -1,4 +1,4 @@
-import {computed, defineAsyncComponent, reactive} from 'vue'
+import {computed, defineAsyncComponent, reactive, toRefs} from 'vue'
 
 import routes, {RouteComponent} from './routes'
 
@@ -33,6 +33,7 @@ go(state.route, true)
 
 export default function useRoute () {
   return {
+    ...toRefs(state),
     view: CurrentView,
     go,
   }
