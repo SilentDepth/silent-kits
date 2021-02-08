@@ -1,9 +1,9 @@
 {
-  "name": "silent-kits",
-  "version": "0.0.0",
+  "name": "@silentdepth/kits",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
-    "build": "vuedx-typecheck . && vite build",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {

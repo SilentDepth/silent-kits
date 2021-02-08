@@ -4,12 +4,14 @@ div(class="flex-none h-screen overflow-auto border-r border-gray-300 dark:border
     span(class="mr-2 -mt-4 text-2xl") 🧰
     | Silent Kits
   nav(class="py-4 space-y-6")
-    section(class="flex flex-col")
-      h2(class="px-4 py-1 text-sm uppercase text-gray-500") Components
-      a(href="javascript:" class="px-4 py-1 hover:bg-gray-200" @click="go('/components/theme-switch')") theme-switch
-    section(class="flex flex-col")
-      h2(class="px-4 py-1 text-sm uppercase text-gray-500") Tailwind CSS Plugins
-      a(href="javascript:" class="px-4 py-1 hover:bg-gray-200" @click="go('/tailwindcss/hover')") hover
+    section(v-for="(items, group) of navItems" class="flex flex-col")
+      h2(class="px-4 py-1 text-sm uppercase text-gray-500") {{ group }}
+      a(
+        v-for="(name, path) of items"
+        href="javascript:"
+        class="px-4 py-1 hover:bg-gray-200"
+        @click="go(path)"
+      ) {{ name }}
 
 div(class="flex-1 overflow-auto flex flex-col")
   component(:is="view")
@@ -18,13 +20,23 @@ theme-switch
 </template>
 
 <script lang="ts" setup>
-import {reactive} from 'vue'
-
 import ThemeSwitch from '/components/theme-switch'
 
 import useRoute from './router'
 
 const {go, view} = useRoute()
+
+const navItems = {
+  'Components': {
+    '/components/theme-switch': 'theme-switch',
+  },
+  'Composables': {
+    '/composables/dark': 'useDark',
+  },
+  'Tailwind CSS Plugins': {
+    '/tailwindcss/hover': 'hover',
+  },
+}
 </script>
 
 <style>
