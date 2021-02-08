@@ -9,5 +9,5 @@ export default {
   ...Object.fromEntries(Object.entries(pages).map(([path, loader]) => {
     return [RESOLVE.exec(path)![1], loader]
   })),
-  '/': '/theme-switch',
+  '/': '/components/theme-switch',
 } as {[path: string]: string | RouteComponent}
